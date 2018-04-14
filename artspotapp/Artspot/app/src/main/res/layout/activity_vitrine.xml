@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start"
+    tools:context=".activities.Vitrine">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Imagem da peça -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/image_peca"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/button_sugestao"
+                android:layout_alignRight="@+id/button_sugestao"
+                android:layout_alignEnd="@+id/button_sugestao"
+                android:scaleType="fitXY" />
+
+            <!-- Botão dislike -->
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/button_dislike"
+                android:background="@drawable/button_dislike"
+                android:layout_above="@+id/button_sugestao"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="45dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="OnClickButtonDislike" />
+
+            <!-- Botão Like -->
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/button_like"
+                android:background="@drawable/button_like"
+                android:layout_above="@+id/button_sugestao"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="45dp"
+                android:layout_marginEnd="45dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="OnClickButtonLike" />
+
+            <!-- Botão + informações -->
+            <Button
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/button_info"
+                android:layout_marginTop="35dp"
+                android:onClick="OnClickButtonInfo"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/button_like"
+                android:layout_alignEnd="@+id/button_like"
+                android:background="@drawable/ic_information" />
+
+            <!-- Botão sugestão de local -->
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Sugestão"
+                android:id="@+id/button_sugestao"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:background="#3d3d3d"
+                android:onClick="OnClickButtonSugestao" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!-- Drawer -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_items" />
+
+</android.support.v4.widget.DrawerLayout>

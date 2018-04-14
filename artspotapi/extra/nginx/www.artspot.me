@@ -1,0 +1,19 @@
+server {
+        listen 80;
+        server_name www.artspot.me;
+        return 301 $scheme://artspot.me$request_uri;
+}
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    server_name artspot.me;
+
+    root /var/www/artspot.me/html;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

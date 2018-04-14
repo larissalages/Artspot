@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Contém os ítens da barra lateral -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/drawer_item_minhas_pecas" android:icon="@android:drawable/ic_menu_gallery"
+            android:title="@string/str_drawer_minhas_pecas" />
+        <item android:id="@+id/drawer_item_meus_locais" android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="@string/str_drawer_meus_locais" />
+        <item android:id="@+id/drawer_item_configuracoes" android:icon="@drawable/ic_configuracoes"
+            android:title="@string/str_drawer_configuracoes" />
+        <item android:id="@+id/drawer_item_entrar" android:icon="@drawable/ic_login"
+            android:title="@string/str_drawer_entrar" />
+        <item android:id="@+id/drawer_item_sair" android:icon="@android:drawable/ic_menu_close_clear_cancel"
+            android:title="@string/str_drawer_sair" />
+        <item android:id="@+id/drawer_item_debug" android:icon="@drawable/ic_debug"
+            android:title="@string/str_drawer_debug" />
+    </group>
+
+</menu>

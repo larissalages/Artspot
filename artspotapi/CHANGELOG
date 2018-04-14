@@ -1,0 +1,192 @@
+
+ aaf4fe8 / 16 Jan 2016
+
+    * aaf4fe8 - CHANGELOG for v1.4.0
+    * d156526 - Merge branch 'feature/v1.4.0' into master
+    * 8b5bfdc - changelog for v1.2.2
+    * 51c2ba3 - Merge branch 'hotfix/v1.2.2'
+
+
+ v1.4.0 / 16 Jan 2016
+
+    * 08c22fe - newtest changelog
+    * 09af815 - bump version file
+    * 8aeb96a - remove backup file
+    * 8819a75 - Merge branch 'feature/v1.4.0' into develop
+    * dd8a018 - favorites bugfix into image controllers
+    * e0e6e9e - update API spec
+    * 7adfc57 - bugfix when deleting showcase history
+    * 9a15fd5 - update API spec
+    * 66fdf9f - add favorite field into image views
+    * cdc9a5d - fix typo into routes file
+    * ea0f17c - update API spec
+    * cb2a8ea - personalizing destroy route
+    * 660ce27 - normalize destroy responses
+    * 37ff060 - destroy showcase history
+    * 35d9b7c - update API spec
+    * 59cb02f - insert favorite field into showcase responses
+    * e753b41 - bugfix when listing favorites
+    * 108842b - update API spec
+    * e77370b - improvements in favorites
+    * ccc31a4 - fix typos in API spec
+    * cfe6c74 - update API spec
+    * 98ae961 - favorites controller and views
+    * d9c65eb - upload tests cleanup
+    * 14c5a14 - favorite models
+    * 3e16d7e - Seed2 para testes madeira x metal
+    * af550ae - Seed2 para testes madeira x metal
+    * be7126b - solve merge conflits
+    * b410de4 - Merge branch 'feature/v1.3.0' into develop
+    * d3d002d - profile controller and views - upload tests
+    * c4d4799 - db schema.rb after migrations
+    * ad0cb82 - profile model for image upload tests
+    * 1cd47a4 - new changelog generated
+    * 56af148 - bump version number to v1.2.1
+    * 9d14b95 - Merge branch 'hotfix/v1.2.1' into develop
+    * 0aa3686 - changelog for v1.2.0
+    * 9336c3a - Merge branch 'release/v1.2.0' into develop
+
+
+ v1.2.2 / 14 Jan 2016
+
+    * 51c2ba3 - Merge branch 'hotfix/v1.2.2'
+    * 364ee9a - fix showcase issue when nearest_places are empty
+    * 1188332 - bump version to v1.2.1
+
+
+ v1.2.1 / 11 Jan 2016
+
+    * a1f8b5f - Merge branch 'hotfix/v1.2.1'
+    * 6a9a539 - fix authenticated likes/hates
+    * 2b908d5 - changelog for v1.2.0
+
+
+ v1.2.0 / 10 Jan 2016
+
+    * 52c9501 - Merge branch 'release/v1.2.0'
+    * 51b74a7 - fix: tag palha is missing
+    * e127a56 - bumping version to 1.2.0
+    * adec101 - Merge branch 'develop' of bitbucket.org:gpimentel/artspotapi into develop
+    * 0bf1bfc - Merge branch 'feature/v1.2.0' into develop
+    * 54fbc9b - update
+    * f9f83c2 - make places field option for new images
+    * 02501ca - fix image like/hate counters
+    * 7361c2c - ignore shared folder
+    * 72c6abd - fix critical bug in tags controller
+    * 1c0d8fc - filter auth_token from request params
+    * 6b0686c - lock gem versions
+    * 63b7cd1 - change pattern of image field into sugestion view
+    * 6541caf - update CHANGELOG to reflect v1.1.0 changes
+    * 719b59e - Merge branch 'release/v1.1.0' into develop
+
+
+ v1.1.0 / 5 Jan 2016
+
+    * 8bc20fd - Merge branch 'release/v1.1.0'
+    * bfd0baa - bump version file
+    * bb779fc - Merge branch 'develop' of bitbucket.org:gpimentel/artspotapi into develop
+    * bb3d56e - update CHANGELOG to reflect v1.0.0
+    * c98c5dc - Merge branch 'release/v1.0.0' into develop
+    * 7275d4a - images
+    * 07a27eb - Povoando
+
+
+ v1.0.0 / 5 Jan 2016
+
+    * c764968 - Merge branch 'release/v1.0.0'
+    * 40ccd72 - generate CHANGELOG
+    * 9c56390 - remove database sample config file
+    * 36e5c6e - update git ignores
+    * 399f506 - version file
+    * bcf2c3c - generic database.yml file
+    * edce29f - create root static route
+    * a95fa08 - add nginx and unicorn support
+    * 1e3430d - add auth_token into suggestion request
+    * 4195793 - README typos
+    * 3e49100 - update API spec
+    * f66b970 - modify image_ids into place views
+    * 192058b - exclude user images from showcase
+    * a3165ef - improve place update routine into images controller
+    * 23cdac1 - change image update behavior
+    * ae5f372 - fix image updates
+    * 2779668 - image tags fix
+    * 68e29cb - fix image creation when tags already exist
+    * 1d436b2 - Merge branch 'develop' of bitbucket.org:gpimentel/artspotapi into develop
+    * 351e713 - Merge branch 'feature/v0.7.0' into develop
+    * 1a2bff7 - update API spec
+    * 790a77b - allows distance algorithm to be chosen
+    * 5b30d6d - update API spec
+    * 762c992 - change score field position in suggestions view
+    * d59797e - use multiset theory into suggestions controller
+    * afd4259 - update API spec
+    * 455f319 - change places and tags update and creation schema
+    * 7d5fda9 - multiset helpers for scoring mechanism
+    * 40df97a - suggestions controller algorithm proposal
+    * 7c43232 - Update db
+    * b0581ee - Update1 db: Places
+    * 27843f3 - Merge branch 'feature/v0.7.0' into develop
+    * 6f57595 - fix authorization issue for user actions
+    * b04b556 - Merge branch 'feature/v0.7.0' into develop
+    * 0563eea - retrieve tags liked by guests
+    * 2d42af5 - remove unused helper method
+    * 1bc52db - represent palce_ids as a json array of place_id objects
+    * 51dc71a - represent image tags as a json array of tag objects
+    * 85542c0 - Merge branch 'feature/v0.7.0' into develop
+    * bc0b83f - fixing signout issue
+    * 3ae9d55 - keep public images folder
+    * 57cef93 - Merge branch 'feature/v0.7.0' into develop
+    * 393cc34 - update API spec
+    * c0234eb - suggestion draft
+    * 739dfe2 - add user helpers into showcase controller
+    * f8fdfd8 - suggestions controller first draft
+    * 18f6931 - fix showcase bug when image resources were exhausted
+    * cac3490 - create coordinate helpers
+    * d495496 - Merge branch 'feature/v0.6.0' into develop
+    * 96d2c29 - update API spec
+    * aeaac96 - showcase likes and hates
+    * 4fba8bd - showcase authenticated navigation
+    * cd8cf66 - fix issue with tag creation and listing
+    * e86828c - showcase navigation models and relations for authenticated users
+    * a348f4c - migrations for showcase authenticated navigation
+    * d92d156 - refactoring showcase to accommodate user navigation
+    * 04d0a40 - fixing upload seeds
+    * d76d7aa - Merge branch 'feature/v0.5.0' into develop
+    * f860cfe - showcase guest navigation
+    * 2a2a821 - Merge branch 'feature/v0.4.0' into develop
+    * bc65493 - model fixes and database seeds
+    * e36a354 - Merge branch 'feature/v0.4.0' into develop
+    * 4729a85 - make user params accessible upon registration
+    * 0bd8b84 - anonymous browse relations and accessors
+    * 50c20e1 - models for anonymous likes and dislikes
+    * d2cb866 - showcase controller with coordinate fallbacks
+    * fb268e8 - db migrations to make Place model work with Geokit
+    * 342d251 - adding Geokit into Gemfile
+    * 67f66cf - Merge branch 'feature/v0.4.0' into develop
+    * 2c4ab2c - update API spec
+    * 74a0deb - adding upload reference into image views
+    * 77d9a6d - adding timestamp info into image views
+    * 217c27a - list all images that belongs to a place
+    * fdcba76 - image and tags controllers
+    * 8af0515 - tags controller
+    * 79ddb68 - images controller
+    * ac89066 - Merge branch 'feature/v0.3.0' into develop
+    * 4732193 - API spec file updated
+    * 55b33e2 - missing field image_uri added to upload views
+    * afe5a28 - upload CRUD and entity relations
+    * 51cebf5 - ignore uploaded images
+    * 13db32f - customize public url path
+    * 251cfea - uploads controller
+    * 0cf68d9 - Merge branch 'feature/v0.2.0' into develop
+    * d6ab7ee - update API spec
+    * aab1006 - user settings were added
+    * 47270c5 - release of place services
+    * a0e9e65 - major improvements in user controller and routes
+    * ba827bb - fixing authorization issue
+    * 0f356f2 - fixing routes for api
+    * 7ddeef0 - update API specs
+    * b800c7f - update API spec
+    * f27425b - authentication and authorization layers
+    * 28a96c2 - API spec
+    * b6b0039 - rails application schema
+    * 957d102 - Initial commit
+

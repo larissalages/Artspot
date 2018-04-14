@@ -1,0 +1,159 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.ExibicaoLocal"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:weightSum="1">
+
+        <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
+            android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- Mapa -->
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:id="@+id/exibicao_local_mapa"
+            tools:context=".activities.ExibicaoLocal"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+        <!-- Divisória Preta -->
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"
+            android:background="@color/colorPrimary" />
+
+        <!-- Fotos de peças dos locais -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <!-- Peça 1 -->
+            <ImageView
+                android:id="@+id/item_minhas_pecas_foto_peca"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:background="@drawable/image_not_found" />
+
+            <!-- Peça 2 -->
+            <ImageView
+                android:id="@+id/item_minhas_pecas_foto_peca2"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:background="@drawable/image_not_found" />
+
+            <!-- Peça 3 -->
+            <ImageView
+                android:id="@+id/item_minhas_pecas_foto_peca3"
+                android:layout_width="120dp"
+                android:layout_height="110dp"
+                android:background="@drawable/image_not_found" />
+        </LinearLayout>
+
+        <!-- Divisória Preta -->
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="12dp"
+            android:background="@color/colorPrimary" />
+
+        <!--  Nome do local-->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="Nome:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#747170"
+            android:textSize="16sp"
+            android:text="nome do local"
+            android:id="@+id/exibicao_local_nome"/>
+
+        <!--  Descricao-->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="Descrição:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#747170"
+            android:textSize="16sp"
+            android:text="descricao do local"
+            android:id="@+id/exibicao_local_descricao"/>
+
+        <!--  Endereço-->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="Endereço:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#747170"
+            android:textSize="16sp"
+            android:text="endereço do local"
+            android:id="@+id/exibicao_local_endereco"/>
+
+        <!--  Horario de funcionamento-->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="Horário de Funcionamento:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#747170"
+            android:textSize="16sp"
+            android:text="horário do local"
+            android:id="@+id/exibicao_local_horario"/>
+
+        <!-- Contato -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="Contato:" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textColor="#747170"
+            android:textSize="16sp"
+            android:text="contato do local"
+            android:id="@+id/exibicao_local_contato"/>
+
+    </LinearLayout>
+
+</ScrollView>

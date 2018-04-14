@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Entrar">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Botão Entrar -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrar"
+            android:id="@+id/tela_entrar_button_entrar"
+            android:layout_marginBottom="7dp"
+            android:layout_above="@+id/tela_entrar_button_cadastrar"
+            android:layout_alignLeft="@+id/tela_entrar_button_cadastrar"
+            android:layout_alignStart="@+id/tela_entrar_button_cadastrar"
+            android:layout_alignRight="@+id/tela_entrar_button_cadastrar"
+            android:layout_alignEnd="@+id/tela_entrar_button_cadastrar"
+            android:onClick="OnClickButtonEntrar" />
+
+        <!--Botão Cadastrar-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tela_entrar_button_facebook"
+            android:layout_marginBottom="40dp"
+            android:layout_alignLeft="@+id/tela_entrar_button_facebook"
+            android:layout_alignStart="@+id/tela_entrar_button_facebook"
+            android:layout_alignRight="@+id/tela_entrar_button_facebook"
+            android:layout_alignEnd="@+id/tela_entrar_button_facebook"
+            android:text="Cadastrar"
+            android:onClick="OnClickButtonCadastrar"
+            android:id="@+id/tela_entrar_button_cadastrar"/>
+
+        <!--Botão de Login do Facebook -->
+        <com.facebook.login.widget.LoginButton
+            android:layout_width="250dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/tela_entrar_button_facebook" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

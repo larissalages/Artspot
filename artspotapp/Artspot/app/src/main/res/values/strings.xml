@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Aplicativo -->
+    <string name="app_name">Artspot</string>
+    <string name="facebook_app_id">545901048898955</string>
+    <string name="google_maps_key">AIzaSyB0P6fvDMJ7pwedgOCouLf0f_7VsiG99XQ</string>
+
+    <string name="server_url_no_slash">http://api.artspotbr.com</string>
+    <string name="server_url">http://api.artspotbr.com/</string>
+
+    <!-- <string name="server_url_no_slash">http://192.168.25.4:3000</string>
+    <string name="server_url">http://192.168.25.4:3000/</string> -->
+
+    <!-- Titulos das activities no manifesto -->
+    <string name="title_activity_cadastrar_usuario">Cadastrar Usuario</string>
+    <string name="title_activity_cadastrar_local">Cadastrar Local</string>
+    <string name="title_activity_cadastrar_peca">Cadastrar Peca</string>
+    <string name="title_activity_meus_locais">meusLocais</string>
+    <string name="title_activity_minhas_pecas">minhasPecas</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_entrar">Entrar</string>
+    <string name="title_activity_vitrine">Vitrine</string>
+    <string name="title_activity_exibicao_peca">Exibição de Peça</string>
+    <string name="title_activity_exibicao_local">Exibição de Local</string>
+    <string name="title_activity_sugestoes_locais">Sugestões de Locais</string>
+    <string name="title_activity_configuracoes">Configurações</string>
+    <string name="title_activity_teste_debug">Teste Debug</string>
+
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="str_drawer_minhas_pecas">Minhas Peças</string>
+    <string name="str_drawer_meus_locais">Meus Locais</string>
+    <string name="str_drawer_configuracoes">Configurações</string>
+    <string name="str_drawer_entrar">Entrar</string>
+    <string name="str_drawer_sair">Sair</string>
+    <string name="str_drawer_debug">Debug</string>
+
+    <!-- Botão Sobre -->
+    <string name="about_button_name">Sobre</string>
+    <string name="about_message">Artspot é um aplicativo para encontrar locais de artesanato que mais
+        se adequem ao seu gosto!</string>
+
+</resources>

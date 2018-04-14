@@ -1,0 +1,1333 @@
+
+--- [ ARTSPOT API ] ---
+
+
+
+---[ 1. SESSIONS
+
+
+1.1. Cadastrar um novo usuario
+
+    Request:
+
+      POST /api/users/sign_up
+
+      {
+        "name": string,
+        "email": string,
+        "password": string,
+        "password_confirmation": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+
+      }
+
+      name     - nome do usuario;
+      email    - email do usuario;
+      password - senha do usuario;
+
+    Response:
+
+      {
+        "id": number,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "last_sign_in_at": datetime,
+        "last_sign_in_ip": datetime,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+
+1.2. Autenticar o usuario
+
+    Request:
+
+      POST /api/users/sign_in
+
+      {
+        "email": string,
+        "password": string
+      }
+
+    Response:
+
+      {
+        "auth_token": token,
+        "status": success | failure,
+        "reason": string
+      }
+
+
+1.3. Invalidar sessao do usuario
+
+    Request:
+
+      POST /api/users/sign_out
+
+      {
+        "auth_token": token
+      }
+
+    Response:
+
+     {
+       "auth_token": token
+       "status": success | failure,
+       "reason": string
+     }
+
+
+
+---[ 2. USERS
+
+
+2.1. Lista todos os usuarios
+
+    Request:
+
+      GET /api/users
+
+      {
+        "auth_token": token
+      }
+
+      auth_token  - authentication token (opicional)
+
+    Response:
+
+      [
+        {
+          "id": number,
+          "name": string,
+          "email": string,
+          "radius": integer,
+          "city": string,
+          "address": string,
+          "latitude": string,
+          "longitude": string,
+          "created_at": datetime,
+          "updated_at": datetime,
+          "last_sign_in_at": datetime,
+          "last_sign_in_ip": datetime,
+          "place_ids": [ 
+            { "place_id": number },
+            { "palce_id": number },
+            ...
+          ],
+        },
+        ...
+      ]
+
+
+2.2. Recuperar as informacoes de um dado usuario
+
+    Request:
+
+      GET /api/users/:id
+
+      id - identificador do usuario
+
+    Response:
+
+      {
+        "id": number,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "last_sign_in_at": datetime,
+        "last_sign_in_ip": datetime,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+
+2.3. Recupera o do perfil do usuario autenticado
+
+    Request:
+
+      GET /api/users/profile
+
+      {
+        "auth_token": token
+      }
+
+    Response:
+
+      {
+        "id": number,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "last_sign_in_at": datetime,
+        "last_sign_in_ip": datetime,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+
+2.4. Edita o perfil do usuario autenticado
+
+    Request:
+
+      PUT /api/users/profile
+
+      {
+        "auth_token": token,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "password": string,
+        "password_confirmation": string,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+    Response:
+
+      {
+        "id": number,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "last_sign_in_at": datetime,
+        "last_sign_in_ip": datetime,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+
+2.5. Deleta o usuario autenticado
+
+    Request:
+
+      DELETE /api/users/profile
+
+      {
+        "auth_token": token
+      }
+
+    Response:
+
+      {
+        "id": number,
+        "name": string,
+        "email": string,
+        "radius": integer,
+        "city": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "last_sign_in_at": datetime,
+        "last_sign_in_ip": datetime,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+      }
+
+
+
+---[ 3. PLACES
+
+
+3.1. Recuperar todos os local
+
+    Request:
+
+      GET /api/places/all
+
+      {
+        "auth_token": token
+      }
+
+      auth_token  - authentication token (opicional)
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "image_ids": [
+          { "image_id": number },
+          { "image_id": number },
+          ...
+        ]
+      }
+
+
+3.2. Recuperar informacoes de um local
+
+    Request:
+
+      GET /api/places/:id
+
+      id - identificador do local
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+        "created_at": datetime,
+        "updated_at": datetime,
+        "image_ids": [
+          { "image_id": number },
+          { "image_id": number },
+          ...
+        ]
+      }
+
+
+3.3. Cadastrar um novo local
+
+    Request:
+
+      POST /api/places
+
+      {
+        "auth_token": token
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+      }
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+        "image_ids": [
+          { "image_id": number },
+          { "image_id": number },
+          ...
+        ],
+        "created_at": datetime,
+        "updated_at": datetime,
+      }
+
+
+3.4. Recuperar os locais do usuario autenticado
+
+    Request:
+
+      GET /places
+
+      {
+        "auth_token": token
+      }
+
+     Response:
+
+      [
+        {
+          "id": number,
+          "user_id": integer,
+          "name": string,
+          "description": string,
+          "address": string,
+          "latitude": string,
+          "longitude": string,
+          "working_hours": string,
+          "contact": string,
+          "image_ids": [
+            { "image_id": number },
+            { "image_id": number },
+            ...
+          ],
+          "created_at": datetime,
+          "updated_at": datetime,
+        },
+        ...
+      ]
+
+
+3.5. Edita um local
+
+    Request:
+
+      PUT /api/places/:id
+
+      {
+        "auth_token": token
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+      }
+
+      id - identificador do local
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+        "image_ids": [
+          { "image_id": number },
+          { "image_id": number },
+          ...
+        ],
+        "created_at": datetime,
+        "updated_at": datetime,
+      }
+
+
+3.6. Deleta um local
+
+    Request:
+
+      DELETE /api/places/:id
+
+      {
+        "auth_token": token
+      }
+
+      id - identificador do local
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "name": string,
+        "description": string,
+        "address": string,
+        "latitude": string,
+        "longitude": string,
+        "working_hours": string,
+        "contact": string,
+        "image_ids": [
+          { "image_id": number },
+          { "image_id": number },
+          ...
+        ],
+        "created_at": datetime,
+        "updated_at": datetime,
+      }
+
+
+
+---[ 4. UPLOADS
+
+
+4.1. Listar todos os uploads
+
+    Request:
+
+      GET /api/uploads/all
+
+      {
+        "auth_token": token
+      }
+
+      auth_token  - authentication token (opicional)
+
+    Response:
+
+      [
+        {
+          "id": number,
+          "user_id": number,
+          "file_name": string,
+          "file_name_orig": string,
+          "file_size": integer,
+          "content_type": string,
+          "sha1sum": string,
+          "image_uri": string,
+          "created_at": datetime,
+          "updated_at": datetime
+        },
+        ...
+      ]
+
+
+4.2. Exibir um upload especifico
+
+    Request:
+
+      GET /api/uploads/:id
+
+      id - identificador do upload
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "file_name": string,
+        "file_name_orig": string,
+        "file_size": integer,
+        "content_type": string,
+        "sha1sum": string,
+        "image_uri": string,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+
+4.3. Listar todos os uploads do usuario
+
+    Request:
+
+      GET /api/uploads
+
+      {
+        "auth_token": token
+      }
+
+    Response:
+
+      [
+        {
+          "id": number,
+          "user_id": number,
+          "file_name": string,
+          "file_name_orig": string,
+          "file_size": integer,
+          "content_type": string,
+          "sha1sum": string,
+          "image_uri": string,
+          "created_at": datetime,
+          "updated_at": datetime
+        },
+        ...
+      ]
+
+
+4.4. Criar um upload
+
+    Request:
+
+      POST /api/uploads
+
+      {
+        "auth_token": token
+        "file_name": string,
+        "content_type": string
+        "content": base64
+      }
+
+      content_type - ex: 'image/png', 'image/jpg'
+      content      - base64 encode of image data
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "file_name": string,
+        "file_name_orig": string,
+        "file_size": integer,
+        "content_type": string,
+        "sha1sum": string,
+        "image_uri": string,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+
+4.5. Editar um upload especifico
+
+    Request:
+
+      PUT /api/uploads/:id
+
+      {
+        "auth_token": token
+        "file_name": string,
+        "content_type": string
+        "content": base64
+      }
+
+      id           - identificador do upload
+      content_type - ex: 'image/png', 'image/jpg'
+      content      - base64 encode of image data
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "file_name": string,
+        "file_name_orig": string,
+        "file_size": integer,
+        "content_type": string,
+        "sha1sum": string,
+        "image_uri": string,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+
+4.6. Excluir um upload especifico
+
+    Request:
+
+      DELETE /api/uploads/:id
+
+      {
+        "auth_token": token
+      }
+
+      id - identificador do upload
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "file_name": string,
+        "file_name_orig": string,
+        "file_size": integer,
+        "content_type": string,
+        "sha1sum": string,
+        "image_uri": string,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+
+
+---[ 5. IMAGES
+
+
+5.1. Listar todas as imagens
+
+    Request:
+
+      GET /api/images/all
+
+      {
+        "auth_token": token
+      }
+
+      auth_token  - authentication token (opicional)
+
+    Response:
+
+     [
+       {
+          "id": number,
+          "user_id": number,
+          "upload_id": number,
+          "place_ids": [ 
+            { "place_id": number },
+            { "palce_id": number },
+            ...
+          ],
+          "image_uri": string,
+          "likes": number,
+          "hates": number,
+          "tags": [
+            { "tag": string },
+            { "tag": string },
+            ...
+          ],
+          "favorite": boolean,
+          "created_at": datetime,
+          "updated_at": datetime
+        },
+        ...
+      ]
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+5.2. Exibir uma imagem especifica
+
+    Request:
+
+      GET /api/images/:id
+
+      id - identificador da imagem
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "upload_id": number,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "image_uri": string,
+        "likes": number,
+        "hates":  number,
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+5.3. Cadastrar uma nova imagem
+
+    Request:
+
+      POST /api/images
+
+      {
+        "auth_token": string,
+        "upload_id": number,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+      }
+
+      upload_id  - identificador da peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "upload_id": number,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "image_uri": string,
+        "likes": number,
+        "hates":  number,
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+5.4. Recuperar as imagens do usuario
+
+    Request:
+
+      GET /api/images
+
+      {
+        "auth_token": string,
+      }
+
+    Response:
+
+     [
+       {
+          "id": number,
+          "user_id": number,
+          "upload_id": number,
+          "place_ids": [ 
+            { "place_id": number },
+            { "palce_id": number },
+            ...
+          ],
+          "image_uri": string,
+          "likes": number,
+          "hates":  number,
+          "tags": [
+            { "tag": string },
+            { "tag": string },
+            ...
+          ],
+          "favorite": boolean,
+          "created_at": datetime,
+          "updated_at": datetime
+        },
+        ...
+      ]
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+5.5. Editar uma imagem
+
+    Request:
+
+      PUT /api/images/:id
+
+      {
+        "auth_token": string,
+        "upload_id": number,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+      }
+
+      upload_id  - identificador da peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+
+    Response:
+
+     {
+        "id": number,
+        "user_id": number,
+        "upload_id": number,
+        "place_ids": [ 
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "image_uri": string,
+        "likes": number,
+        "hates": number,
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+     }
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+5.6. Excluir uma imagem
+
+    Request:
+
+      DELETE /api/images/:id
+
+      {
+        "auth_token": string,
+      }
+
+      id - identificador da imagem
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "upload_id": number,
+        "place_ids": [
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "image_uri": string,
+        "likes": number,
+        "hates": number,
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a peça foi favoritada pelo usuario;
+
+
+
+---[ 6. SHOWCASE
+
+
+6.1. Carregar uma nova peca baseada nas peferencias e locais
+
+  Request:
+
+    GET /api/showcase?radius=:radius&latitude=:latitude&longitude=:longitude
+
+    {
+      "auth_token": "auth_token"
+    }
+
+    - all parameters are optional including the "auth_token"
+
+  Response:
+
+    {
+      "id": number,
+      "user_id": number,
+      "place_ids": [
+        { "place_id": number },
+        { "palce_id": number },
+        ...
+      ],
+      "tags": [
+        { "tag": string },
+        { "tag": string },
+        ...
+      ],
+      "image_uri": uri,
+      "likes": number,
+      "hates": number
+      "favorite": boolean,
+      "created_at": datetime,
+      "updated_at": datetime
+    }
+
+    id         - identificador da peca;
+    user_id    - identificador do usuario que cadastrou a peca;
+    place_ids  - identificadores dos locais onde a peca se encontra:
+    tags       - lista de palavras que descrevem a peca;
+    image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+    likes      - total de curtidas;
+    hates      - total de descurtidas;
+    favorite   - indica se a imagem foi favoritada pelo usuario;
+
+
+6.2. Mecanismo de like
+
+    Request:
+
+      GET /api/showcase/like/:image_id
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      image_id   - identificador da peca;
+      auth_token - authentication token (optional)
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "place_ids": [
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "image_uri": uri,
+        "likes": number,
+        "hates": number
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+      id         - identificador da nova peca;
+      user_id    - identificador do usuario que cadastrou a nova peca;
+      place_ids  - identificadores dos locais onde a nova peca se encontra:
+      tags       - lista de palavras que descrevem a nova peca;
+      image_uri  - uri para baixar a nova peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a imagem foi favoritada pelo usuario;
+
+
+6.3. Mecanismo de hate
+
+    Request:
+
+      GET /api/showcase/hate/:image_id
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      image_id   - identificador da peca;
+      auth_token - authentication token (optional)
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "place_ids": [
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "image_uri": uri,
+        "likes": number,
+        "hates": number
+        "favorite": boolean,
+        "created_at": datetime,
+        "updated_at": datetime
+      }
+
+      id         - identificador da nova peca;
+      user_id    - identificador do usuario que cadastrou a nova peca;
+      place_ids  - identificadores dos locais onde a nova peca se encontra:
+      tags       - lista de palavras que descrevem a nova peca;
+      image_uri  - uri para baixar a nova peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+      favorite   - indica se a imagem foi favoritada pelo usuario;
+
+
+6.4. Apagar historico de navegacao na vitrine
+
+    Request:
+
+      DELETE /api/showcase/history
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      auth_token - authentication token
+
+    Response:
+
+      {
+        "status": success | failure
+      }
+
+      success  - historico removido com sucesso
+      failure  - falha ao remover historico
+
+
+
+---[ 7. PLACE SUGGESTIONS
+
+
+7.1. Obter recomendacao de local
+
+    Request:
+
+      GET /api/suggestion?radius=:raidus&latitude=:latitude&longitude=:longitude&metric=:algorithm
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      auth_token - authentication token (optional)
+
+    Response:
+
+      [
+        {
+          "id": number,
+          "image_ids": [
+            { "image_id": number },
+            { "image_id": number },
+            ...
+          ],
+          "score": number,
+          "name": string,
+          "description": string,
+          "address": string,
+          "latitude": string,
+          "longitude": string,
+          "working_hours": string,
+          "contact": string,
+        },
+        ...
+      ]
+
+      score - pontuacao entre 0 e 1 (quanto mais alto melhor);
+      radius, longitude, latitude and metric paramters are optional;
+
+
+
+---[ 8. FAVORITES
+
+
+8.1. Listar imagens favoritas
+
+    Request:
+
+      GET /api/favorites
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      auth_token - authentication token
+
+    Response:
+
+     [
+       {
+          "id": number,
+          "user_id": number,
+          "upload_id": number,
+          "place_ids": [ 
+            { "place_id": number },
+            { "palce_id": number },
+            ...
+          ],
+          "image_uri": string,
+          "likes": number,
+          "hates":  number,
+          "tags": [
+            { "tag": string },
+            { "tag": string },
+            ...
+          ],
+          "created_at": datetime,
+          "updated_at": datetime
+        },
+        ...
+      ]
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+
+
+8.2. Listar imagem favorita
+
+    Request:
+
+      GET /api/favorites/:image_id
+
+      {
+        "auth_token": "auth_token"
+      }
+
+      image_id    - identificador da imagem
+      auth_token  - authentication token
+
+    Response:
+
+     {
+        "id": number,
+        "user_id": number,
+        "upload_id": number,
+        "place_ids": [
+          { "place_id": number },
+          { "palce_id": number },
+          ...
+        ],
+        "image_uri": string,
+        "likes": number,
+        "hates": number,
+        "tags": [
+          { "tag": string },
+          { "tag": string },
+          ...
+        ],
+        "created_at": datetime,
+        "updated_at": datetime
+     }
+
+      id         - identificador da peca;
+      user_id    - identificador do usuario que cadastrou a peca;
+      place_ids  - identificadores dos locais onde a peca se encontra:
+      tags       - lista de palavras que descrevem a peca;
+      image_uri  - uri para baixar a peca ex: "/public/image/000012.png";
+      likes      - total de curtidas;
+      hates      - total de descurtidas;
+
+
+8.3. Criar favorito
+
+    Request:
+
+      POST /api/favorites
+
+      {
+        "image_id": number,
+        "auth_token": "auth_token"
+      }
+
+      image_id    - identificador da imagem
+      auth_token  - authentication token
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "image_id": number,
+      }
+
+
+8.4. Excluir favorito
+
+    Request:
+
+      DELETE /api/favorites/:image_id
+
+      {
+        "image_id": number,
+        "auth_token": "auth_token"
+      }
+
+      image_id    - identificador da imagem
+      auth_token  - authentication token
+
+    Response:
+
+      {
+        "id": number,
+        "user_id": number,
+        "image_id": number,
+      }
+
+
+
+- EOF
+
